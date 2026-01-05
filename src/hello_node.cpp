@@ -21,16 +21,18 @@ public:
   HelloNode()
   : Node("hello_world_node")
   {
-  timer_ = this->create_wall_timer(
-    1000ms,
-    std::bind(&HelloNode::timer_callback, this)
+    // TODO: Initialize the timer here
+    timer_ = this->create_wall_timer(
+      1000ms,
+      std::bind(&HelloNode::timer_callback, this)
     );
   }
 
 private:
+  // TODO: Define the timer_callback function here
   void timer_callback()
   {
-    RCLCPP_INFO(this->get_logger(), "Hello, World!");
+    RCLCPP_WARN(this->get_logger(), "Hello, World!");
   }
 
   rclcpp::TimerBase::SharedPtr timer_;
@@ -43,3 +45,4 @@ int main(int argc, char * argv[])
   rclcpp::shutdown();
   return 0;
 }
+
